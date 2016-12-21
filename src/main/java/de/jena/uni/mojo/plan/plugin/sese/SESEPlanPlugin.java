@@ -35,23 +35,28 @@ import de.jena.uni.mojo.util.store.ElementStore;
 public class SESEPlanPlugin implements PlanPlugin {
 
 	@Override
-	public int id() {
-		return SESEDecompositionMajorPlan.class.getAnnotation(MajorAnalysisPlan.class).id();
+	public String getId() {
+		return SESEDecompositionMajorPlan.class.getAnnotation(MajorAnalysisPlan.class).id() + "";
 	}
 
 	@Override
-	public String name() {
+	public String getName() {
 		return SESEDecompositionMajorPlan.class.getAnnotation(MajorAnalysisPlan.class).name();
 	}
 
 	@Override
-	public String author() {
+	public String getAuthor() {
 		return SESEDecompositionMajorPlan.class.getAnnotation(MajorAnalysisPlan.class).author();
 	}
 
 	@Override
-	public String description() {
+	public String getDescription() {
 		return SESEDecompositionMajorPlan.class.getAnnotation(MajorAnalysisPlan.class).description();
+	}
+
+	@Override
+	public String getVersion() {
+		return "1.0";
 	}
 
 	@Override
