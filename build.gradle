@@ -1,7 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 version = '1.0'
 
 jar {
@@ -9,6 +10,16 @@ jar {
 		attributes 	'Implementation-Title': 'Mojo SESE Decomposition Plan Plugin',
 					'Implementation-Version': version
 	}
+}
+
+task fatJar(type: Jar) {
+	manifest {
+		attributes 	'Implementation-Title': 'Mojo SESE Decomposition Plan Plugin',
+					'Implementation-Version': version
+	}
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 repositories {
