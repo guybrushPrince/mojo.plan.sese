@@ -28,13 +28,14 @@ repositories {
 	flatDir {
 		dirs 'libs'
 	}
+	maven { url "https://jitpack.io" }
 }
 
 dependencies {
 	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
 	compile 'org.apache.logging.log4j:log4j-core:2.7'
 	compile name: 'jbpt-0.2.393'
-	compile project(':core')
+	compile 'com.github.guybrushPrince:mojo.core:master'
     testCompile 'junit:junit:4.12'
 	testCompile name: 'jbpt-0.2.393'
 }
